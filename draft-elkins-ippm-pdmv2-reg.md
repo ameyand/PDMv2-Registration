@@ -19,8 +19,8 @@
 # Change the file extension to match the format (.xml for XML, etc...)
 #
 ###
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
+title: "Registration Protocol for Encrypted PDMv2 (PDMv2-REG)"
+abbrev: "draft-elkins-ippm-pdmv2-reg"
 category: info
 
 docname: draft-todo-yourname-protocol-latest
