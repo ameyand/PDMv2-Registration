@@ -8,7 +8,7 @@ Intended status: Informational                             16 April 2025
 Expires: 18 October 2025
 
 
-                           TODO - Your title
+         Registration Protocol for Encrypted PDMv2 (PDMv2-REG)
                   draft-todo-yourname-protocol-latest
 
 Abstract
