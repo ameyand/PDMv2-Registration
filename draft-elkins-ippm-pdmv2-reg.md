@@ -12,6 +12,7 @@ v: 0
 area: "Transport"
 workgroup: "IP Performance Measurement"
 keyword:
+
  - Extension Headers
  - IPv6
  - PDMv2
@@ -19,7 +20,7 @@ keyword:
  - Diagnostic
 venue:
   group: "IP Performance Measurement"
-  type: ""
+  type: "Working Group"
   mail: "ippm@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/ippm/"
   github: "ameyand/PDMv2-Registration"
