@@ -1,0 +1,189 @@
+
+
+
+
+IP Performance Measurement                                     N. Elkins
+Internet-Draft                                     Inside Products, Inc.
+Intended status: Informational                              M. Ackermann
+Expires: 7 December 2025                                   BCBS Michigan
+                                                            A. Deshpande
+                                                   NITK Surathkal/Google
+                                                            T. Pecorella
+                                                  University of Florence
+                                                             5 June 2025
+
+
+         Registration Protocol for Encrypted PDMv2 (PDMv2-REG)
+                   draft-elkins-ippm-pdmv2-reg-latest
+
+Abstract
+
+   This document specifies a registration protocol for use with
+   Performance and Diagnostic Metrics version 2 (PDMv2).  This
+   registration process enables endpoints to communicate supported
+   policies and capabilities in advance of measurement sessions,
+   simplifying setup and enhancing security.  The protocol defines a set
+   of commands, responses, and message formats, and proposes integration
+   with the Diameter Base Protocol (RFC 6733) as the transport and
+   authentication mechanism.
+
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   The latest revision of this draft can be found at
+   https://ameyand.github.io/PDMv2-Registration/draft-elkins-ippm-
+   pdmv2-reg.html.  Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-elkins-ippm-pdmv2-reg/.
+
+   Discussion of this document takes place on the IP Performance
+   Measurement mailing list (mailto:ippm@ietf.org), which is archived at
+   https://mailarchive.ietf.org/arch/browse/ippm/.  Subscribe at
+   https://www.ietf.org/mailman/listinfo/ippm/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/ameyand/PDMv2-Registration.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 7 December 2025.
+
+Copyright Notice
+
+   Copyright (c) 2025 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+   2.  Why Diameter?
+   3.  Conventions and Definitions
+   4.  Security Considerations
+   5.  IANA Considerations
+   6.  Normative References
+   Acknowledgments
+   Authors' Addresses
+
+1.  Introduction
+
+   Performance and Diagnostic Metrics (PDM) defined in [RFC8250] allow
+   for enhanced diagnostics of packet delay and network behavior.  PDMv2
+   builds upon this by requiring prior registration of participating
+   endpoints to negotiate policies, authentication, and encryption
+   modes.
+
+   A robust registration mechanism allows Clients, Servers, and
+   Analyzers to declare their role, supported cipher suites, and address
+   ranges.  This draft defines such a protocol using Diameter as the
+   transport, given its extensibility and robust AAA Capabilities.
+
+2.  Why Diameter?
+
+   Diameter [RFC6733] defines a framework for AAA services, and is
+   extensible for different applications through extensions.  Given the
+   requirement of PDMv2 registration protocol, the use of a standard-
+   based AAA system seems to be logical.
+
+   RFC6733 defines various entities that can be mapped to the PDMv2
+   entities (client, server, analyzer, AS).  In the Diameter
+   terminology, the AS could be mapped to a “Proxy Agent”, which can
+   enforce policy rules, e.g., preventing the clients from requesting a
+   connection to a server.
+
+   All the other entities can be configured as “Peers”, with specific
+   application TLVs describing their operations.
+
+   Note: The use of Diameter in the PDMv2 context will require the
+   definition of an “application” specific to PDMv2, specific AVP, and
+   message formats.
+
+   The decision to use Diameter will also need to be validated through a
+   PoC.
+
+3.  Conventions and Definitions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+4.  Security Considerations
+
+   TODO Security
+
+5.  IANA Considerations
+
+   This document has no IANA actions.
+
+6.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC6733]  Fajardo, V., Ed., Arkko, J., Loughney, J., and G. Zorn,
+              Ed., "Diameter Base Protocol", RFC 6733,
+              DOI 10.17487/RFC6733, October 2012,
+              <https://www.rfc-editor.org/rfc/rfc6733>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC8250]  Elkins, N., Hamilton, R., and M. Ackermann, "IPv6
+              Performance and Diagnostic Metrics (PDM) Destination
+              Option", RFC 8250, DOI 10.17487/RFC8250, September 2017,
+              <https://www.rfc-editor.org/rfc/rfc8250>.
+
+Acknowledgments
+
+   TODO acknowledge.
+
+Authors' Addresses
+
+   Nalini Elkins
+   Inside Products, Inc.
+   United States
+   Email: nalini.elkins@insidethestack.com
+
+
+   Michael Ackermann
+   BCBS Michigan
+   United States
+   Email: mackermann@bcbsm.com
+
+
+   Ameya Deshpande
+   NITK Surathkal/Google
+   India
+   Email: ameyanrd@gmail.com
+
+
+   Tommaso Pecorella
+   University of Florence
+   Italy
+   Email: tommaso.pecorella@unifi.it
